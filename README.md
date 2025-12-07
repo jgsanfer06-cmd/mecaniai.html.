@@ -1,102 +1,41 @@
-index.html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MecaniAI - Diagnóstico Inteligente</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f1f1f1;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 700px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin: auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .resultado {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e9f5ff;
-            border-left: 5px solid #007bff;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>MecaniAI</h1>
-        <p>Ingresa los síntomas de la máquina para obtener un diagnóstico inteligente.</p>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MecaniAI — Diagnóstico de máquinas industriales</title>
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#fff; --accent:#0b75ff; --muted:#6b7280;
+    --success:#0f766e; --danger:#dc2626;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    background:var(--bg); color:#0f172a;
+  }
+  header{
+    background:linear-gradient(90deg,#fff 0%, #f7fbff 100%);
+    border-bottom:1px solid rgba(15,23,42,0.06);
+    padding:20px;
+    text-align:center;
+  }
+  header h1{margin:0;font-size:1.6rem;letter-spacing:0.4px;}
+  header p{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
 
-        <textarea id="inputSintomas" placeholder="Ejemplo: vibración fuerte y ruido metálico..."></textarea>
-        <br><br>
-        <button onclick="diagnosticar()">Diagnosticar</button>
-
-        <div id="resultado" class="resultado" style="display:none;"></div>
-    </div>
-
-    <script>
-        function diagnosticar() {
-            const texto = document.getElementById('inputSintomas').value.toLowerCase();
-            let fallo = "No se pudo determinar el fallo con la información proporcionada.";
-            let recomendacion = "Intenta describir más síntomas.";
-
-            if (texto.includes("vibra") && texto.includes("ruido")) {
-                fallo = "Desgaste en rodamientos";
-                recomendacion = "Lubricar o reemplazar rodamientos y verificar alineación del eje.";
-            }
-            else if (texto.includes("temperatura") || texto.includes("calienta")) {
-                fallo = "Sobrecalentamiento del motor";
-                recomendacion = "Revisar ventilación, carga mecánica y sistema eléctrico.";
-            }
-            else if (texto.includes("potencia") || texto.includes("fuerza")) {
-                fallo = "Pérdida de eficiencia o desgaste interno";
-                recomendacion = "Revisar transmisión, bandas, y nivel de lubricación.";
-            }
-            else if (texto.includes("chispa") || texto.includes("eléctrico")) {
-                fallo = "Falla eléctrica o cortocircuito";
-                recomendacion = "Inspeccionar cableado, aislamiento y fusibles.";
-            }
-
-            document.getElementById('resultado').style.display = 'block';
-            document.getElementById('resultado').innerHTML = `
-                <h3>Diagnóstico Probable:</h3>
-                <p><strong>${fallo}</strong></p>
-                <h3>Recomendación:</h3>
-                <p>${recomendacion}</p>
-            `;
-        }
-    </script>
-</body>
-</html>
+  .wrap{max-width:960px;margin:28px auto;padding:0 16px}
+  .grid{display:grid;grid-template-columns:1fr 420px;gap:20px}
+  @media (max-width:880px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+  label{display:block;font-weight:600;margin-bottom:8px}
+  select,input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #dbe6f5;background:#fff;font-size:0.95rem}
+  textarea{min-height:120px;resize:vertical}
+  .row{display:flex;gap:10px}
+  .row > *{flex:1}
+  button.primary{
+    width:100%;padding:12px;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:700;font-size:1rem;
+    cursor:pointer;
+  }
+  button.ghost{background:transparent;border:1px solid #e5eefc;color:var(--accent);padding:10px;border-radius:10px}
+  .result{margin-top:12px;border-left:6px solid var(--accent);padding:12px;background:#f0f8ff;border-radius:8px}
+  .tag{display:inli
